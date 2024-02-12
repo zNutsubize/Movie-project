@@ -1,0 +1,67 @@
+<div class="body-wrapper">
+  <div class="images"></div>
+  <div class="wrapper">
+    <div class="slider" *ngIf="images && images.length > 0">
+      <img
+        *ngFor="let img of images; let i = index"
+        src="https://image.tmdb.org/t/p/w500{{ img }}"
+        alt=""
+        [ngClass]="{ 'image-active': selectedIndex === i }"
+        class="fade"
+        (click)="onClick()"
+      />
+
+      <div *ngIf="indicators" class="dot-container">
+        <span
+          *ngFor="let dot of images; let i = index"
+          class="dot"
+          [ngClass]="{ active: selectedIndex === i }"
+          (click)="selectedImage(i)"
+        >
+        </span>
+      </div>
+    </div>
+    <div class="contents-wrapper">
+      <div
+        class="contents"
+        *ngFor="
+          let movie of movies | paginate: { itemsPerPage: 10, currentPage: num }
+        "
+        [routerLink]="['/movie/' + movie.id.toString()]"
+      >
+        <img
+          src="https://image.tmdb.org/t/p/w500{{ movie?.poster_path }}"
+          alt=""
+          id="img"
+        />
+        <div id="image-overlay">
+          <div class="more">Details</div>
+        </div>
+        <div class="rating">
+          <div class="date-wrapper">
+            <small class="date" *ngIf="movie.first_air_date">{{
+              movie.first_air_date | date: "shortDate"
+            }}</small>
+            <small class="date" *ngIf="movie.release_date">{{
+              movie.release_date | date: "shortDate"
+            }}</small>
+          </div>
+          <div class="rating-wrapper">
+            <small>{{ movie.vote_average | number: ".2-2" }}</small>
+            <img
+              src="../../../assets/rating-icon.png"
+              alt=""
+              class="rating-star"
+            />
+          </div>
+        </div>
+        <h3 *ngIf="movie.title">{{ movie.title }}</h3>
+        <h3 *ngIf="movie.name">{{ movie.name }}</h3>
+      </div>
+    </div>
+    <pagination-controls
+      class="center"
+      (pageChange)="num = $event"
+    ></pagination-controls>
+  </div>
+</div>

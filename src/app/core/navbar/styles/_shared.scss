@@ -1,0 +1,205 @@
+nav {
+  height: calc(100vh * 0.06);
+  width: 100%;
+  background-color: #00253e;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    margin-left: 25px;
+    height: 100%;
+    img {
+      height: inherit;
+    }
+  }
+  form {
+    color: #555;
+    display: flex;
+    padding: 2px;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    input[type="text"] {
+      border: none;
+      background: transparent;
+      margin: 0;
+      padding: 7px 8px;
+      font-size: 14px;
+      color: inherit;
+      border: 1px solid transparent;
+      border-radius: inherit;
+    }
+
+    input[type="text"]::placeholder {
+      color: #bbb;
+    }
+    button[type="submit"] {
+      text-indent: -999px;
+      overflow: hidden;
+      width: 40px;
+      height: 30px;
+      padding: 0;
+      margin: 0;
+      border: 1px solid transparent;
+      border-radius: inherit;
+      background: transparent
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+        no-repeat center;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    button[type="submit"]:hover {
+      opacity: 1;
+    }
+    button[type="submit"]:focus,
+    input[type="text"]:focus {
+      outline: none;
+    }
+  }
+
+  .logout {
+    height: 70%;
+    margin-right: 25px;
+    border: none;
+    border-radius: 10px;
+    word-wrap: break-word;
+    padding: 5px 15px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(82, 125, 156);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.searched-wrapper {
+  width: 100vw;
+  background-color: #00253e;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+
+  #image-overlay2 {
+    display: none;
+  }
+  #img2:hover {
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    filter: blur(2px);
+    transition: 0.3s ease;
+  }
+  #img2:hover ~ #image-overlay2 {
+    position: absolute;
+    width: 60%;
+    height: 8%;
+    background-color: green;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+  }
+  #image-overlay2:hover {
+    cursor: pointer;
+    position: absolute;
+    width: 60%;
+    height: 8%;
+    background-color: green;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+  }
+  .searched {
+    background-color: #00253e;
+    width: 60%;
+    height: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 60px;
+    align-content: flex-start;
+    .contents {
+      display: flex;
+      flex-direction: column;
+      width: 22%;
+      position: relative;
+      justify-content: space-around;
+      img {
+        width: 100%;
+        height: 70%;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        box-shadow: 0 8px 16px #dce1e1;
+      }
+      h3 {
+        justify-self: center;
+        color: white;
+      }
+      .rating {
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        text-align: center;
+        .rating-star {
+          box-shadow: none;
+        }
+        small {
+          color: white;
+          width: 20px;
+          height: 20px;
+          font-weight: 600;
+          font-size: 18px;
+        }
+        .rating-wrapper {
+          display: flex;
+          text-align: center;
+          justify-content: flex-end;
+          align-content: center;
+          width: 50%;
+          small {
+            margin-right: 15px;
+          }
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}

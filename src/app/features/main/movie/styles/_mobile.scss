@@ -1,0 +1,41 @@
+@media screen and (min-width: $mobile-start) and (max-width: $mobile-end) {
+  .wrapper {
+    gap: 0;
+    padding: 10px;
+    .title {
+      font-size: 24px;
+    }
+    .photo {
+      width: 90%;
+      margin: 0;
+      max-width: 250px;
+      .vote {
+        height: 20px;
+        font-size: 18px;
+        padding: 2px 4px;
+      }
+      .runtime {
+        height: 20px;
+        font-size: 18px;
+        padding: 2px 4px;
+      }
+    }
+    .details {
+      width: 90%;
+      .genres {
+        flex-direction: column;
+        h2 {
+          font-size: 16px;
+        }
+      }
+      .overview {
+        p {
+          font-size: 14px;
+        }
+      }
+      .members {
+        max-width: 200px !important;
+      }
+    }
+  }
+}

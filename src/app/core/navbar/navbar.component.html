@@ -1,0 +1,51 @@
+<nav *ngIf="navAppear$ | async">
+  <a routerLink="/main" (click)="logoClicked()">
+    <img src="../../../assets/logo-sample.png" alt="" />
+  </a>
+  <form [formGroup]="formGroup">
+    <input type="text" placeholder="Search..." formControlName="search" />
+    <button type="submit" (click)="getMovie()">Search</button>
+  </form>
+  <button class="logout" routerLink="/login" (click)="logOut()">Log Out</button>
+</nav>
+<div class="searched-wrapper" *ngIf="navAppear$ | async">
+  <div class="searched" *ngIf="searchLoad() | async">
+    <div
+      class="contents"
+      *ngFor="let movie of searchedMovies"
+      [routerLink]="['/movie/' + movie.id.toString()]"
+      (click)="onClick()"
+    >
+      <ng-container *ngIf="movie?.poster_path">
+        <img
+          src="https://image.tmdb.org/t/p/w500{{ movie?.poster_path }}"
+          alt=""
+          id="img2"
+        />
+        <div id="image-overlay2">
+          <div class="more">Details</div>
+        </div>
+        <div class="rating">
+          <div class="date-wrapper">
+            <small class="date" *ngIf="movie.first_air_date">{{
+              movie.first_air_date | date: "shortDate"
+            }}</small>
+            <small class="date" *ngIf="movie.release_date">{{
+              movie.release_date | date: "shortDate"
+            }}</small>
+          </div>
+          <div class="rating-wrapper">
+            <small>{{ movie.vote_average | number: ".2-2" }}</small>
+            <img
+              src="../../../assets/rating-icon.png"
+              alt=""
+              class="rating-star"
+            />
+          </div>
+        </div>
+        <h3 *ngIf="movie.title">{{ movie.title }}</h3>
+        <h3 *ngIf="movie.name">{{ movie.name }}</h3>
+      </ng-container>
+    </div>
+  </div>
+</div>

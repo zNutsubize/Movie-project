@@ -1,0 +1,10 @@
+<div class="body-wrapper">
+  <form [formGroup]="formGroup">
+    <h2>Please Log in to use website</h2>
+    <input type="email" placeholder="Email" formControlName="email" />
+    <input type="password" placeholder="Password" formControlName="password" />
+    <button type="button" (click)="LogIn()">Log In</button>
+    <h3>Don't have an account? Please</h3>
+    <button type="button" (click)="SignUp()">Sign Up</button>
+  </form>
+</div>

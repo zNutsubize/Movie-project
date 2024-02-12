@@ -1,0 +1,33 @@
+@media screen and (min-width: $tablet-start) and (max-width: $tablet-end) {
+  .wrapper {
+    gap: 0;
+    .title {
+      font-size: 28px;
+    }
+    .photo {
+      margin: 0;
+      .vote {
+        height: 30px;
+        font-size: 18px;
+        padding: 2px 4px;
+      }
+      .runtime {
+        height: 30px;
+        font-size: 18px;
+        padding: 2px 4px;
+      }
+    }
+    .details {
+      .genres {
+        h2 {
+          font-size: 22px;
+        }
+      }
+      .overview {
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

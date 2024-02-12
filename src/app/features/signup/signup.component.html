@@ -1,0 +1,50 @@
+<div class="body-wrapper">
+  <form [formGroup]="formGroup">
+    <h2>Please Log in to use website</h2>
+    <input
+      type="email"
+      placeholder="Email"
+      formControlName="email"
+      [class.red-border]="
+        formGroup.get('email')?.invalid && formGroup.get('email')?.touched
+      "
+      [class.green-border]="
+        formGroup.get('email')?.valid && formGroup.get('email')?.touched
+      "
+    />
+    <small class="marg" *ngIf="formGroup.get('email')?.invalid">
+      Must contain @Sweeft.com</small
+    >
+    <input
+      type="password"
+      placeholder="Password"
+      formControlName="password"
+      [class.red-border]="
+        formGroup.get('password')?.invalid && formGroup.get('password')?.touched
+      "
+      [class.green-border]="
+        formGroup.get('password')?.valid && formGroup.get('password')?.touched
+      "
+    />
+    <small class="marg" *ngIf="formGroup.get('password')?.invalid">
+      At least 6 characters</small
+    >
+    <button
+      type="button"
+      (click)="SignUp()"
+      [disabled]="this.formGroup.invalid"
+    >
+      Sign Up
+    </button>
+    <h3>Already have an account? Please</h3>
+    <button type="button" (click)="LogIn()">Log In</button>
+  </form>
+</div>
+<input
+  type="text"
+  formControlName="name"
+  placeholder="თემური"
+  [class.red-border]="
+    formGroup.get('name')?.invalid && formGroup.get('name')?.touched
+  "
+/>

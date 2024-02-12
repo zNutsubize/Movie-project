@@ -1,0 +1,11 @@
+@media screen and (min-width: $tablet-start) and (max-width: $tablet-end) {
+  #img2 {
+    height: 200px;
+  }
+  .contents {
+    justify-content: flex-start !important;
+  }
+  #image-overlay2 {
+    margin-top: 50%;
+  }
+}

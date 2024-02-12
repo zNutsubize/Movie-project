@@ -1,0 +1,21 @@
+@media screen and (min-width: $tablet-start) and (max-width: $tablet-end) {
+  .wrapper {
+    max-width: 1320px !important;
+    .slider {
+      width: 70% !important;
+      height: calc(100vh * 0.5);
+    }
+    .contents {
+      small {
+        font-size: 14px !important;
+      }
+      .rating-star {
+        width: 14px !important;
+        height: 14px !important;
+      }
+      h3 {
+        font-size: 17px;
+      }
+    }
+  }
+}

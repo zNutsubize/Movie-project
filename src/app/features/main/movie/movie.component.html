@@ -1,0 +1,68 @@
+<div class="body-wrapper">
+  <ng-container *ngIf="works">
+    <div class="wrapper">
+      <h1 class="title">{{ data["title"] }}</h1>
+      <div class="photo">
+        <img
+          src="https://image.tmdb.org/t/p/w500{{ data['poster_path'] }}"
+          alt="Opss.. Couldn't load a picture"
+        />
+        <div class="vote">
+          <h3>{{ data["vote_average"] | number: ".2-2" }}</h3>
+          <img
+            src="../../../../assets/rating-icon.png"
+            alt=""
+            class="rating-star"
+          />
+        </div>
+        <h3 class="runtime">{{ data["runtime"] }}min</h3>
+      </div>
+      <div class="details">
+        <div class="genres flex row">
+          <ng-container *ngFor="let genre of data?.genres">
+            <h2 class="">{{ genre["name"] }} |</h2>
+          </ng-container>
+        </div>
+        <div class="overview">
+          <p>{{ data["overview"] }}</p>
+        </div>
+        <ng-container *ngIf="cast && cast.length > 0">
+          <div class="cast-wrapper flex column">
+            <div class="label">
+              <h2>Cast</h2>
+            </div>
+            <div class="cast flex row">
+              <div *ngFor="let member of cast" class="members">
+                <ng-container *ngIf="member.profile_path">
+                  <img
+                    src="https://image.tmdb.org/t/p/w500{{
+                      member?.profile_path
+                    }}"
+                    alt=""
+                  />
+                  <h3 class="name">{{ member.name }}</h3>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <!-- <div class="crew-wrapper flex column"> -->
+        <!-- <div class="label" *ngIf="">
+        <h2>Crew</h2>
+      </div> -->
+        <!-- <div class="crew flex row">
+        <div *ngFor="let member of crew" class="members">
+          <ng-container *ngIf="member.profile_path">
+            <img
+              src="https://image.tmdb.org/t/p/w500{{ member?.profile_path }}"
+              alt=""
+            />
+            <h3>{{ member.name }}</h3>
+          </ng-container>
+        </div>
+      </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </ng-container>
+</div>
